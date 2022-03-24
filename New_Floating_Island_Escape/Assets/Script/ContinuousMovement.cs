@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
-using Unity.XR.CoreUtils;
+
 
 public class ContinuousMovement : MonoBehaviour
 {
@@ -13,7 +13,7 @@ public class ContinuousMovement : MonoBehaviour
     public LayerMask groundLayer;
     public float additionalHeight = 0.2f;
     private float fallingSpeed;
-    private XROrigin origin;
+    private XRRig origin;
     private Vector2 inputAxis;
     private CharacterController character;
 
@@ -21,7 +21,7 @@ public class ContinuousMovement : MonoBehaviour
     void Start()
     {
         character = GetComponent<CharacterController>();
-        origin = GetComponent<XROrigin>();
+        origin = GetComponent<XRRig>();
     }
 
     // Update is called once per frame
@@ -35,7 +35,7 @@ public class ContinuousMovement : MonoBehaviour
     {
         CapsuleFollowHeadset();
 
-        Quaternion headYaw = Quaternion.Euler(0, origin.Camera.transform.eulerAngles.y, 0);
+        Quaternion headYaw = Quaternion.Euler(0, origin.cameraGameObject.transform.eulerAngles.y, 0);
         Vector3 direction = headYaw * new Vector3(inputAxis.x, 0, inputAxis.y);
 
         character.Move(direction * Time.fixedDeltaTime * speed);
@@ -46,13 +46,13 @@ public class ContinuousMovement : MonoBehaviour
             fallingSpeed = 0;
         else
             fallingSpeed += gravity * Time.fixedDeltaTime;
-        character.Move(Vector3.up * fallingSpeed * Time.fixedDeltaTime);
+            character.Move(Vector3.up * fallingSpeed * Time.fixedDeltaTime);
     }
 
     void CapsuleFollowHeadset()
     {
-        character.height = origin.CameraInOriginSpaceHeight + additionalHeight;
-        Vector3 capsuleCenter = transform.InverseTransformPoint(origin.Camera.transform.position);
+        character.height = origin.cameraInRigSpaceHeight + additionalHeight;
+        Vector3 capsuleCenter = transform.InverseTransformPoint(origin.cameraGameObject.transform.position);
         character.center = new Vector3(capsuleCenter.x, character.height / 2 + character.skinWidth, capsuleCenter.z);
     }
     bool CheckIfGrounded()

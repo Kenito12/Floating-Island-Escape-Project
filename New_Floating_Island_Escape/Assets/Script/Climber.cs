@@ -9,21 +9,30 @@ public class Climber : MonoBehaviour
 
     private CharacterController character;
     public  static XRController climbingHand;
+    private ContinuousMovement continuousMovement;
     
 
     // Start is called before the first frame update
     void Start()
     {
+        //access both Component at the start
         character = GetComponent<CharacterController>();
+        continuousMovement = GetComponent<ContinuousMovement>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        //if clibingahdn disable continuousMovement
         if (climbingHand)
         {
-            
-            Climb(); 
+            continuousMovement.enabled = false;
+            Climb();
+            Debug.Log("Let's Climb");
+        }
+        else
+        {
+            continuousMovement.enabled = true;
         }
     
     }
@@ -33,6 +42,7 @@ public class Climber : MonoBehaviour
     {
         InputDevices.GetDeviceAtXRNode(climbingHand.controllerNode).TryGetFeatureValue(CommonUsages.deviceVelocity, out Vector3 velocity);
 
+        //move player body into the oposite direction
         character.Move( transform.rotation * -velocity * Time.fixedDeltaTime);
     }
 }
