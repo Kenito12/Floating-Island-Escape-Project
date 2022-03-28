@@ -9,6 +9,7 @@ public class LocomationController : MonoBehaviour
     public InputHelpers.Button teleportActivationButton;
     public float activationThreshhold = 0.1f;
 
+
     // Update is called once per frame
     void Update()
     {
