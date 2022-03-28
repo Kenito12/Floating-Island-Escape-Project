@@ -12,6 +12,7 @@ public class ContinuousMovement : MonoBehaviour
     public float gravity = -9.81f;
     public LayerMask groundLayer;
     public float additionalHeight = 0.2f;
+    public bool grappling = false;
     private float fallingSpeed;
     private XRRig origin;
     private Vector2 inputAxis;
@@ -42,7 +43,7 @@ public class ContinuousMovement : MonoBehaviour
 
         //gravity
         bool isGrounded = CheckIfGrounded();
-        if (isGrounded)
+        if (isGrounded || grappling)
             fallingSpeed = 0;
         else
             fallingSpeed += gravity * Time.fixedDeltaTime;
