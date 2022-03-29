@@ -9,11 +9,12 @@ public class GrapplingHook : MonoBehaviour
     public ContinuousMovement continuousMovementScript;
     public LocomationController locomationControllerScript;
     public InputHelpers.Button teleportActivationButton;
-    public float maxDistance = 100.0f;
 
     // While shooting
-    private bool grapple;
-    private RaycastHit hit;
+    public float maxDistance = 100.0f;
+    public bool grapple;
+    public RaycastHit hit;
+
     private Vector3 grappleDestination;
     private float currentSpeed = 0.0f;
     private float maxSpeed = 15.0f;
@@ -76,7 +77,7 @@ public class GrapplingHook : MonoBehaviour
     {
         if (Physics.Raycast(this.transform.position, this.transform.forward, out hit, maxDistance))
         {
-            currentSpeed = 0;
+            //currentSpeed = 0;
             gravity = false;
             grappleDestination = hit.point;
             grapple = true;
@@ -99,7 +100,3 @@ public class GrapplingHook : MonoBehaviour
         locomationControllerScript.teleportActivationButton = 0;
     }
 }
-
-// When shot, create a rope
-// Rope deletes when finished
-// Create a rope

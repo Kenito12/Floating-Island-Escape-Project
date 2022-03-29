@@ -40,7 +40,6 @@ public class MoveZipline : MonoBehaviour
             if (handCounter == 2)
             {
                 character.Move((destination.transform.position - this.transform.position).normalized * currentSpeed * Time.deltaTime);
-
             }
         }
     }
