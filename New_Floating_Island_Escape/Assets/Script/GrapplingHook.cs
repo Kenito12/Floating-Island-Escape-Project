@@ -26,11 +26,10 @@ public class GrapplingHook : MonoBehaviour
     private bool gravity = true;
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        Debug.Log(currentSpeed);
-
         CheckGravity();
+
         PlayerToDestination();
     }
 
@@ -39,7 +38,7 @@ public class GrapplingHook : MonoBehaviour
         if (gravity)
         {
             continuousMovementScript.grappling = false;
-            character.Move((grappleDestination - this.transform.position).normalized * CalculateDeceleration() * Time.deltaTime);
+
         }
         else
         {
@@ -53,6 +52,7 @@ public class GrapplingHook : MonoBehaviour
         {
             character.Move((grappleDestination - this.transform.position).normalized * CalculateAcceleration() * Time.deltaTime);
         }
+
     }
 
     float CalculateAcceleration()
@@ -86,8 +86,11 @@ public class GrapplingHook : MonoBehaviour
 
     public void EndShoot()
     {
+        StartCoroutine(SmoothLerp());
         gravity = true;
         grapple = false;
+        Debug.Log("EndShoot");
+
     }
 
     public void EnableTeleport()
@@ -99,4 +102,25 @@ public class GrapplingHook : MonoBehaviour
     {
         locomationControllerScript.teleportActivationButton = 0;
     }
+
+    private IEnumerator SmoothLerp()
+    {
+        float elapsedTime = 0;
+        float time = 0.1f ;
+
+        while (elapsedTime < time)
+        {
+
+            character.Move((grappleDestination - this.transform.position).normalized * CalculateDeceleration() * Time.deltaTime);//this part make player move and teleport not working
+
+            elapsedTime += Time.deltaTime;
+            Debug.Log(elapsedTime);
+            yield return null;
+        }
+
+    }
+
+
 }
+
+

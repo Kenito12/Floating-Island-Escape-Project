@@ -44,10 +44,15 @@ public class ContinuousMovement : MonoBehaviour
         //gravity
         bool isGrounded = CheckIfGrounded();
         if (isGrounded || grappling)
+        {
             fallingSpeed = 0;
+        }
         else
+        {
             fallingSpeed += gravity * Time.fixedDeltaTime;
-            character.Move(Vector3.up * fallingSpeed * Time.fixedDeltaTime);
+        }
+
+        character.Move(Vector3.up * fallingSpeed * Time.fixedDeltaTime);
     }
 
     void CapsuleFollowHeadset()
