@@ -18917,6 +18917,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   line: {fileID: 133732213}
   grapplingHookScript: {fileID: 919132149457108683}
+  ropeLocation: {fileID: 133732214}
 --- !u!114 &919132149457108683
 MonoBehaviour:
   m_ObjectHideFlags: 0

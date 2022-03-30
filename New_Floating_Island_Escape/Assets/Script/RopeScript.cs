@@ -6,13 +6,14 @@ public class RopeScript : MonoBehaviour
 {
     public LineRenderer line;
     public GrapplingHook grapplingHookScript;
+    public Transform ropeLocation;
 
     // Update is called once per frame
     void Update()
     {
         if (grapplingHookScript.grapple)
         {
-            line.SetPosition(0, this.transform.position);
+            line.SetPosition(0, ropeLocation.position);
             line.SetPosition(1, grapplingHookScript.hit.point);
         }
         else
