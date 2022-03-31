@@ -13,6 +13,7 @@ public class GrapplingHook : MonoBehaviour
     // While shooting
     public float maxDistance = 100.0f;
     public bool grapple;
+    public bool grabbed;
     public RaycastHit hit;
 
     private Vector3 grappleDestination;
@@ -38,6 +39,10 @@ public class GrapplingHook : MonoBehaviour
         {
             continuousMovementScript.grappling = false;
 
+            if (grabbed)
+            {
+                character.Move((grappleDestination - this.transform.position).normalized * Mathf.RoundToInt(CalculateDeceleration()) * Time.deltaTime);
+            }
         }
         else
         {
@@ -51,8 +56,6 @@ public class GrapplingHook : MonoBehaviour
         {
             character.Move((grappleDestination - this.transform.position).normalized * CalculateAcceleration() * Time.deltaTime);
         }
-      
-
     }
 
     float CalculateAcceleration()
@@ -88,35 +91,36 @@ public class GrapplingHook : MonoBehaviour
     {
         gravity = true;
         grapple = false;
-        StartCoroutine(SmoothLerp());
-
+        //StartCoroutine(SmoothLerp());
     }
 
     public void EnableTeleport()
     {
+        grabbed = false;
         locomationControllerScript.teleportActivationButton = teleportActivationButton;
     }
 
     public void DisableTeleport()
     {
+        grabbed = true;
         locomationControllerScript.teleportActivationButton = 0;
     }
 
-    private IEnumerator SmoothLerp()
-    {
-        float elapsedtime = 0;
-        float time = 0.5f;
+    //private IEnumerator SmoothLerp()
+    //{
+    //    float elapsedtime = 0;
+    //    float time = 0.5f;
 
-        while (elapsedtime < time)
-        {
-            //this part make player move and teleport not working
-            character.Move((grappleDestination - this.transform.position).normalized * Mathf.RoundToInt(CalculateDeceleration()) * Time.deltaTime);
+    //    while (elapsedtime < time)
+    //    {
+    //        //this part make player move and teleport not working
+    //        character.Move((grappleDestination - this.transform.position).normalized * Mathf.RoundToInt(CalculateDeceleration()) * Time.deltaTime);
 
-            elapsedtime += Time.deltaTime;
+    //        elapsedtime += Time.deltaTime;
  
-            yield return null;
-        }
-    }
+    //        yield return null;
+    //    }
+    //}
 }
 
 
