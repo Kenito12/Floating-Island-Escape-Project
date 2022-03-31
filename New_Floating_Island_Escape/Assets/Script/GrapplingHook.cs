@@ -26,7 +26,7 @@ public class GrapplingHook : MonoBehaviour
     private bool gravity = true;
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         CheckGravity();
         PlayerToDestination();
@@ -37,7 +37,7 @@ public class GrapplingHook : MonoBehaviour
         if (gravity)
         {
             continuousMovementScript.grappling = false;
-            character.Move((grappleDestination - this.transform.position).normalized * Mathf.RoundToInt(CalculateDeceleration()) * Time.deltaTime);
+
         }
         else
         {
@@ -51,6 +51,7 @@ public class GrapplingHook : MonoBehaviour
         {
             character.Move((grappleDestination - this.transform.position).normalized * CalculateAcceleration() * Time.deltaTime);
         }
+      
 
     }
 
@@ -85,10 +86,9 @@ public class GrapplingHook : MonoBehaviour
 
     public void EndShoot()
     {
-        //StartCoroutine(SmoothLerp());
         gravity = true;
         grapple = false;
-        Debug.Log("EndShoot");
+        StartCoroutine(SmoothLerp());
 
     }
 
@@ -102,20 +102,21 @@ public class GrapplingHook : MonoBehaviour
         locomationControllerScript.teleportActivationButton = 0;
     }
 
-    //private IEnumerator SmoothLerp()
-    //{
-    //    float elapsedTime = 0;
-    //    float time = 0.1f ;
+    private IEnumerator SmoothLerp()
+    {
+        float elapsedtime = 0;
+        float time = 0.5f;
 
-    //    while (elapsedTime < time)
-    //    {
-    //        //this part make player move and teleport not working
+        while (elapsedtime < time)
+        {
+            //this part make player move and teleport not working
+            character.Move((grappleDestination - this.transform.position).normalized * Mathf.RoundToInt(CalculateDeceleration()) * Time.deltaTime);
 
-    //        elapsedTime += Time.deltaTime;
-    //        Debug.Log(elapsedTime);
-    //        yield return null;
-    //    }
-    //}
+            elapsedtime += Time.deltaTime;
+ 
+            yield return null;
+        }
+    }
 }
 
 

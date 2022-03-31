@@ -28,7 +28,6 @@ public class Climber : MonoBehaviour
         {
             continuousMovement.enabled = false;
             Climb();
-            Debug.Log("Let's Climb");
         }
         else
         {
