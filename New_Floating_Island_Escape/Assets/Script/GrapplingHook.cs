@@ -9,6 +9,7 @@ public class GrapplingHook : MonoBehaviour
     public ContinuousMovement continuousMovementScript;
     public LocomationController locomationControllerScript;
     public InputHelpers.Button teleportActivationButton;
+    public GameObject previousgun;
 
     // While shooting
     public float maxDistance = 100.0f;
@@ -104,6 +105,12 @@ public class GrapplingHook : MonoBehaviour
     {
         grabbed = true;
         locomationControllerScript.teleportActivationButton = 0;
+    }
+
+    public void DestroyPreviousGun()
+    {
+        Destroy(previousgun);
+
     }
 
     //private IEnumerator SmoothLerp()
