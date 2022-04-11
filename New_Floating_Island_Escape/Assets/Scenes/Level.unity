@@ -5278,6 +5278,7 @@ GameObject:
   - component: {fileID: 565727427}
   - component: {fileID: 565727426}
   - component: {fileID: 565727425}
+  - component: {fileID: 565727430}
   m_Layer: 0
   m_Name: Puzzle_Socket2
   m_TagString: Untagged
@@ -5411,6 +5412,20 @@ Transform:
   m_Father: {fileID: 1728723980}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 15, z: -30}
+--- !u!114 &565727430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 565727424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d255c6ad49eb04448d2bc8cef98babf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puzzleManager: {fileID: 1728723979}
+  correctPuzzle: SecondPuzzle
 --- !u!1 &584301220 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4784273567800689792, guid: 6d29f9969f529164293dd712ba659739, type: 3}
@@ -7926,6 +7941,7 @@ GameObject:
   - component: {fileID: 784488149}
   - component: {fileID: 784488148}
   - component: {fileID: 784488147}
+  - component: {fileID: 784488152}
   m_Layer: 0
   m_Name: Puzzle_Socket1
   m_TagString: Untagged
@@ -8059,6 +8075,20 @@ Transform:
   m_Father: {fileID: 1728723980}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 15, z: -30}
+--- !u!114 &784488152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 784488146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d255c6ad49eb04448d2bc8cef98babf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puzzleManager: {fileID: 1728723979}
+  correctPuzzle: FirstPuzzle
 --- !u!1 &797107339
 GameObject:
   m_ObjectHideFlags: 0
@@ -8519,6 +8549,7 @@ GameObject:
   - component: {fileID: 856150193}
   - component: {fileID: 856150192}
   - component: {fileID: 856150191}
+  - component: {fileID: 856150196}
   m_Layer: 0
   m_Name: Puzzle_Socket3
   m_TagString: Untagged
@@ -8652,6 +8683,20 @@ Transform:
   m_Father: {fileID: 1728723980}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 15, z: -30}
+--- !u!114 &856150196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 856150190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d255c6ad49eb04448d2bc8cef98babf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puzzleManager: {fileID: 1728723979}
+  correctPuzzle: ThirdPuzzle
 --- !u!1 &857709209
 GameObject:
   m_ObjectHideFlags: 0
@@ -17648,6 +17693,9 @@ MonoBehaviour:
   puzz1: 0
   puzz2: 0
   puzz3: 0
+  puzzleIsActive: 0
+  vfxPlayTime: 2
+  door: {fileID: 1497833005}
   poof_Smoke: {fileID: 145196097}
 --- !u!4 &1728723980
 Transform:
