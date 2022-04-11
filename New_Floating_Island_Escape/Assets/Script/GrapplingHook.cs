@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.Audio;
 
 public class GrapplingHook : MonoBehaviour
 {
+
     public CharacterController character;
     public ContinuousMovement continuousMovementScript;
     public LocomationController locomationControllerScript;
@@ -79,8 +81,13 @@ public class GrapplingHook : MonoBehaviour
 
     public void Shoot()
     {
+
+
         if (Physics.Raycast(this.transform.position, this.transform.forward, out hit, maxDistance))
         {
+
+            FindObjectOfType<SoundManager>().Play("Grappling");
+
             //currentSpeed = 0;
             gravity = false;
             grappleDestination = hit.point;
@@ -113,21 +120,6 @@ public class GrapplingHook : MonoBehaviour
 
     }
 
-    //private IEnumerator SmoothLerp()
-    //{
-    //    float elapsedtime = 0;
-    //    float time = 0.5f;
-
-    //    while (elapsedtime < time)
-    //    {
-    //        //this part make player move and teleport not working
-    //        character.Move((grappleDestination - this.transform.position).normalized * Mathf.RoundToInt(CalculateDeceleration()) * Time.deltaTime);
-
-    //        elapsedtime += Time.deltaTime;
- 
-    //        yield return null;
-    //    }
-    //}
 }
 
 

@@ -35,6 +35,7 @@ public class MoveZipline : MonoBehaviour
 
             if (this.transform.position != destination.transform.position)
             {
+                
                 this.transform.position = Vector3.MoveTowards(this.transform.position, destination.transform.position, currentSpeed * Time.deltaTime);
             }
             if (handCounter == 2)
@@ -43,4 +44,5 @@ public class MoveZipline : MonoBehaviour
             }
         }
     }
+
 }

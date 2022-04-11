@@ -9,10 +9,13 @@ public class CountHands : MonoBehaviour
     public void addCount()
     {
         moveZiplineScript.handCounter++;
+ 
     }
 
     public void subtractCount()
     {
         moveZiplineScript.handCounter--;
+
     }
+
 }

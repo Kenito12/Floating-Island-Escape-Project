@@ -15,6 +15,7 @@ public class LocomationController : MonoBehaviour
     {
         if (rightTeleportRay)
         {
+            FindObjectOfType<SoundManager>().Play("Teleport");
             rightTeleportRay.gameObject.SetActive(CheckIfActivated(rightTeleportRay));
         }
     }
@@ -22,6 +23,7 @@ public class LocomationController : MonoBehaviour
     public bool CheckIfActivated(XRController controller)
     {
         InputHelpers.IsPressed(controller.inputDevice, teleportActivationButton, out bool isActivated, activationThreshhold);
+
         return isActivated;
     }
 }

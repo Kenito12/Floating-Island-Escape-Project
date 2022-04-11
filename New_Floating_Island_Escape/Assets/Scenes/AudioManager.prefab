@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7462684480517161336
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7462684480517161342}
+  - component: {fileID: 7462684480517161337}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7462684480517161342
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7462684480517161336}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -79.863, y: -10.37, z: 75.97}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7462684480517161337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7462684480517161336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 714321388f47fb4478b75ed56e71e379, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Theme
+    clip: {fileID: 8300000, guid: 279a4667b0c97ba44a57f5d1a6c4a653, type: 3}
+    volume: 0.2
+    pitch: 1
+    source: {fileID: 0}
+  - name: Zipline
+    clip: {fileID: 8300000, guid: bfef5a111a9cbdb4abfbe504956661ca, type: 3}
+    volume: 0.2
+    pitch: 1
+    source: {fileID: 0}
+  - name: Grappling
+    clip: {fileID: 8300000, guid: 1795072ea25ce1148a1c1b17fd091e40, type: 3}
+    volume: 0.3
+    pitch: 1
+    source: {fileID: 0}
+  - name: Teleport
+    clip: {fileID: 8300000, guid: e428671b562dd2c48ba305c58823535d, type: 3}
+    volume: 0.3
+    pitch: 1
+    source: {fileID: 0}
+  - name: Wind
+    clip: {fileID: 8300000, guid: 7db63bda4e53cd347aa52c841f48e718, type: 3}
+    volume: 0.3
+    pitch: 1
+    source: {fileID: 0}
+  - name: Poof
+    clip: {fileID: 8300000, guid: 5c24dc5e0f80fa84a8452495f9d7d9dc, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}

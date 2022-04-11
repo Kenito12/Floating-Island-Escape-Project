@@ -37,6 +37,7 @@ public class PuzzleManager : MonoBehaviour
                 for (int i = 0; i < vfxPlayTime; i++)
                 {
                     poof_Smoke.Play();
+                    FindObjectOfType<SoundManager>().Play("Poof");
                 }
 
                 //destroy a door after second 
