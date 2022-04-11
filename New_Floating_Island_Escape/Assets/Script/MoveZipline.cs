@@ -10,7 +10,7 @@ public class MoveZipline : MonoBehaviour
 
     private float currentSpeed = 0;
     private float maxSpeed = 10;
-    private float acceleration = 0.25f;
+    private float acceleration = 1.0f;
     private bool movement = false;
 
     void Update()
